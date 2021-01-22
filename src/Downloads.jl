@@ -336,6 +336,8 @@ function request(
                             @async upload_data(easy, input)
                         end
                     end
+                catch ex
+                    @error "Error within request loop" exception = ex
                 finally
                     remove_handle(downloader.multi, easy)
                 end
