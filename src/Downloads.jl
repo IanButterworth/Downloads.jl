@@ -218,6 +218,7 @@ function download(
     verbose    :: Bool = false,
     downloader :: Union{Downloader, Nothing} = nothing,
 ) :: ArgWrite
+    Base.DOWNLOAD_ATTEMPTED_DURING_SESSION[] = true
     arg_write(output) do output
         response = request(
             url,
